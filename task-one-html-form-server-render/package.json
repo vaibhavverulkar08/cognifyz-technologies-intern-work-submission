@@ -1,0 +1,21 @@
+{
+  "name": "task-one-html-form-server-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Vaibhav Verulkar",
+  "author-email": "vaibhavverulkar08@gmail.com",
+  "license": "ISC",
+  "createdAt": "2024-08-06",
+  "copyright": "Copyright (c) 2024 Your Name",
+  "internWorkSubmission": "Submitted as part of internship work at Cognifyz Technologies",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
