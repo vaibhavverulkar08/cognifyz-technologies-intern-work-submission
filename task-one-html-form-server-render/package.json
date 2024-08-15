@@ -15,6 +15,7 @@
   "copyright": "Copyright (c) 2024 Your Name",
   "internWorkSubmission": "Submitted as part of internship work at Cognifyz Technologies",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
     "express": "^4.19.2"
   }

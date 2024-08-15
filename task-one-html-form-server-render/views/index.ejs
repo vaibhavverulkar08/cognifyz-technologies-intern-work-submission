@@ -1,25 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>task-one-html-form-server-render</title>
+    <title>Task2-Full-Stack Intern-Works | By Vaibhav</title>
+    <!-- <link rel="stylesheet" href="../public/styles.css"> -->
+
+    <style>
+        /* Added Inline styles on date 14.08.2024 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <section>task-one-html-form-server-render</section>
-    <h1>Submit Your Details</h1>
-    <form action="/submit" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <input type="submit" value="Submit">
+    <h1>Task 2 - Enhanced Form</h1>
+    <!-- //update on 15.08.2024 -->
+    <form id="userForm" action="/submit" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <button type="submit">Submit</button>
+        <p class="error" id="formError"></p>
     </form>
-    <footer>
-    <hr>
-    Design by Vaibhav Verulkar <br>
-    Contact me: 
-    <a href="https://github.com/vaibhavverulkar08">Github</a>
-    (Full Stack(MERN) Intern @ Cognifyz Technologies, Nagpur)</footer>
+
+    <!-- Added script for validation on date 15.08.24 -->
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function (event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorElement = document.getElementById('formError');
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                errorElement.textContent = 'Passwords do not match!';
+            } else {
+                errorElement.textContent = '';
+            }
+        });
+    </script>
+
+    <!-- update on 15.08.24 -->
+    <!-- Display server-side validation errors -->
+    <% if (errors && errors.length > 0) { %>
+        <ul class="error">
+            <% errors.forEach(error => { %>
+                <li><%= error %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <!-- Display success message and submitted data -->
+    <% if (submittedData) { %>
+        <div class="success">
+            <h2>Form submitted successfully!</h2>
+            <hr>
+            <h3>Your Submitted details are shwon below:</h3>
+            <hr>
+            <p>Name: <%= submittedData.name %></p>
+            <p>Email: <%= submittedData.email %></p>
+            <p>Phone: <%= submittedData.phone %></p>
+        </div>
+    <% } %>
+
+    <h3>Task 2 - completed on 15.08.24</h3>
+
 </body>
+
 </html>
